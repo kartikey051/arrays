@@ -1,0 +1,54 @@
+   #include<stdio.h>
+int main(){
+    int n,m,i,j,temp;
+    printf("enter the number of elements in array 1 and 2\n");
+    scanf("%d",&n);
+    scanf("%d",&m);
+    int a[n+m];
+    printf("enter the elements of array 1\n");
+    for(i=0;i<n;i++)
+    {
+       scanf("%d",&a[i]);
+    }
+    printf("enter the elements of array 2\n");
+    for(i=n;i<n+m;i++)
+    {
+       scanf("%d",&a[i]);
+    }
+      
+    for(i=0;i<n+m-1;i++)
+    {
+      for(j=0;j<n+m-i-1;j++)
+      {
+         if(a[j]>a[j+1])
+         {
+            temp=a[j];
+            a[j]=a[j+1];
+            a[j+1]=temp;
+         }
+      }
+    }
+    printf("the sorted array is\n");
+  for(i=0;i<n+m;i++)
+    {
+       printf("%d\n",a[i]);
+       }
+    temp=n+m;
+    if(temp%2==0)
+    {
+      temp=temp/2;
+      temp=temp-1;
+      printf("the median of the sorted arrays is %d",a[temp]);
+    }
+    else
+    {
+      int temp1;
+      temp1= (temp+1)/2;
+      temp1= temp1-1;
+      temp=(temp -1)/2;
+      temp=temp-1;
+      temp = (a[temp1]+a[temp])/2;
+      printf("the median of the sorted arrays is %d",temp);
+    }
+    return 0;
+}
